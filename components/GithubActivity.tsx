@@ -6,23 +6,35 @@ export default function GithubActivity() {
   const [contributions, setContributions] = useState<number[]>([]);
 
   useEffect(() => {
-    // Generate 364 days (52 weeks * 7 days)
+    // Exact mapping of the June-August activity block from image_8e4d51.png
+    // Row indices: 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
+    // Values: 0 (empty), 1 (light), 2 (medium-light), 3 (medium-dark), 4 (darkest)
+    const activePattern = [
+      [0, 1, 0, 3, 1, 1, 0], // Col 1 (Start of June)
+      [0, 1, 0, 0, 1, 0, 0], // Col 2
+      [0, 0, 1, 1, 1, 1, 1], // Col 3
+      [0, 0, 3, 3, 3, 3, 1], // Col 4
+      [0, 3, 1, 1, 1, 0, 3], // Col 5
+      [0, 1, 2, 2, 0, 1, 3], // Col 6
+      [0, 4, 4, 4, 0, 0, 4], // Col 7
+      [0, 1, 3, 3, 3, 0, 0], // Col 8
+      [0, 3, 1, 1, 0, 0, 0]  // Col 9 (End of active block)
+    ];
+
     const days = [];
+    const startWeek = 22; // Aligns the block precisely under the "Jun" label
+
     for (let i = 0; i < 364; i++) {
-      // Simulate the data from the reference image:
-      // Heavy activity in weeks 22 to 34 (roughly June - August)
       const week = Math.floor(i / 7);
-      let intensity = 0;
+      const dayOfWeek = i % 7;
       
-      if (week >= 22 && week <= 34) {
-        intensity = Math.random() > 0.3 ? Math.floor(Math.random() * 4) + 1 : 0;
-      } else if (week > 34) {
-        intensity = 0;
+      // If the current loop is inside our mapped weeks, inject the specific pattern
+      if (week >= startWeek && week < startWeek + activePattern.length) {
+        days.push(activePattern[week - startWeek][dayOfWeek]);
       } else {
-        intensity = Math.random() > 0.95 ? 1 : 0;
+        // Otherwise, leave it completely blank
+        days.push(0);
       }
-      
-      days.push(intensity);
     }
     setContributions(days);
   }, []);
@@ -57,9 +69,9 @@ export default function GithubActivity() {
             <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
             <path d="M9 18c-4.51 2-5-2-7-2" />
           </svg>
-          <h3 className="text-sm font-medium text-neutral-900">418 contributions in 2026</h3>
+          <h3 className="text-sm font-medium text-neutral-900">420 contributions in 2026</h3>
         </div>
-        <a href="https://github.com/" target="_blank" rel="noreferrer" className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest hover:text-neutral-900 transition-colors">
+        <a href="https://github.com/kaidexcli" target="_blank" rel="noreferrer" className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest hover:text-neutral-900 transition-colors">
           View GitHub ↗
         </a>
       </div>
