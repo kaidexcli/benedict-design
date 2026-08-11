@@ -11,3 +11,16 @@
     @apply font-mono text-xs uppercase tracking-widest text-neutral-500;
   }
 }
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #e5e5e5;
+    border-radius: 20px;
+  }
+}

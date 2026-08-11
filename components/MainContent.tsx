@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react"; // <-- Import the sharp SVG arrow
+import { ArrowUpRight } from "lucide-react"; 
 import { portfolioData } from "@/data";
 import TechStack from "./TechStack"; 
+import GithubActivity from "./GithubActivity"; // <-- Import the new component
 
 export default function MainContent() {
   return (
@@ -30,10 +31,9 @@ export default function MainContent() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-neutral-100 py-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-neutral-100 pt-8 mt-8">
         {portfolioData.stats.map((stat, i) => (
            <div key={i} className="space-y-1 border-l border-neutral-100 pl-4 first:border-0 first:pl-0">
-               {/* Wrapped the value and arrow in a flex container for perfect alignment */}
                <div className="text-lg font-medium text-neutral-900 flex items-center gap-1">
                    {stat.value} 
                    <ArrowUpRight className="w-4 h-4 text-neutral-400 shrink-0" strokeWidth={2.5} />
@@ -42,6 +42,9 @@ export default function MainContent() {
            </div>
         ))}
       </div>
+
+      {/* NEW: GitHub Activity Graph */}
+      <GithubActivity />
 
       {/* Details Sections */}
       <div className="grid md:grid-cols-2 gap-12">
