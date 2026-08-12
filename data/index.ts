@@ -1,8 +1,8 @@
 export const portfolioData = {
   name: "Benedict Fusin",
-  title: "Electronics Engineering & Full-Stack Developer",
+  title: "Electronics and AI Engineering & Full-Stack Developer",
   intro: "I bridge hardware and software through embedded systems, AI, and scalable web applications. I focus on turning complex logic into functional, real-world prototypes.",
-  contactInfo: "benedict.fusin@example.com",
+  contactInfo: "benedictfusin99@gmail.com",
   socials: [
     { name: "github", url: "https://github.com/kaidexcli" },
     { name: "linkedin", url: "https://linkedin.com/" },
