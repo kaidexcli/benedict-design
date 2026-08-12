@@ -42,13 +42,13 @@ export const portfolioData = {
   certificates: [
     { id: "c1", title: "DataCamp Scholar", tag: "Data Eng / AI", description: "Completed rigorous AI and Data Engineering tracks, reaching leaderboard status.", image: "/datacamp-cert.jpg" },
     { id: "c2", title: "Math Wizard", tag: "UPMC 2026", description: "Nationwide competitor tackling matrix polynomials and inverse integral calculus.", image: "/math-wizard.jpg" },
-    { id: "c3", title: "Iskolar ng Husay", tag: "Engineering", description: "Recognized within the university engineering track for academic excellence.", image: "/iskolar.jpg" }
+    { id: "c3", title: "Top #1 Ideathon", tag: "DOST Pylonn", description: "Recognized within the university engineering track for academic excellence.", image: "/iskolar.jpg" }
   ],
   projects: [
-    { id: "1", title: "AquaSmart", tag: "IoT / Embedded", description: "An integrated IoT aquarium environment using sensor automation to maintain optimal aquatic parameters.", image: "/aquasmart.jpg" },
-    { id: "2", title: "SecuWear", tag: "Hardware / C++", description: "A wearable safety device utilizing ESP32, GPS tracking, and GSM/SIM800 SMS alerts.", image: "/secuwear.jpg" },
-    { id: "3", title: "Virtual DC Lab", tag: "MATLAB / GUI", description: "A GUI-based virtual laboratory to simulate DC circuits and compute node equations.", image: "/virtual-dc-lab.jpg" },
-    { id: "4", title: "NodeMCU Robotics", tag: "Hardware / Web API", description: "Standalone ESP8266 robot car featuring local AP Wi-Fi hosting and responsive OLED facial expressions.", image: "/nodemcu-robot.jpg" }
+    { id: "1", title: "BeMotion", tag: "IoT / Embedded", description: "An integrated IoT aquarium environment using sensor automation to maintain optimal aquatic parameters.", image: "/aquasmart.jpg" },
+    { id: "2", title: "SecuWear", tag: "Electronics and AI", description: "A wearable safety device utilizing ESP32, GPS tracking, and GSM/SIM800 SMS alerts.", image: "/secuwear.jpg" },
+    { id: "3", title: "iStud", tag: "Full-Stack and AI", description: "A GUI-based virtual laboratory to simulate DC circuits and compute node equations.", image: "/virtual-dc-lab.jpg" },
+    { id: "4", title: "Arc-Studio", tag: "Business Grade AI", description: "Standalone ESP8266 robot car featuring local AP Wi-Fi hosting and responsive OLED facial expressions.", image: "/nodemcu-robot.jpg" }
   ],
   documentaries: [
     { id: "d1", title: "Local Portraiture", tag: "Photography", description: "Capturing graduation milestones, portraits, and event narratives for local clients.", image: "/photography-portraits.jpg" },
