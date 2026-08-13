@@ -77,8 +77,8 @@ export default function MainContent() {
         </div>
       </div>
 
-      {/* Triptych Card Decks */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-16 mt-16 border-t border-neutral-100">
+      {/* Lengthwise Card Decks Container */}
+      <div className="flex flex-col gap-24 pt-16 mt-16 border-t border-neutral-100">
         <CardDeck title="Certificates" items={portfolioData.certificates} />
         <CardDeck title="Selected Works" items={portfolioData.projects} />
         <CardDeck title="Documentary" items={portfolioData.documentaries} />
