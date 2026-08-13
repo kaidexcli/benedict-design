@@ -28,9 +28,11 @@ export const portfolioData = {
     { category: "Developer Tools", items: ["Git", "GitHub", "GitLab", "Bitbucket", "VS Code", "JetBrains IntelliJ", "PyCharm", "Slack", "Discord", "Teams", "JIRA", "Trello", "ClickUp"] }
   ],
   experiences: [
-    { role: "Auren Founder and CEO", period: "Present", description: "An AI and SaaS startup company providing Software-as-a-Service solutions to other companies" },
-    { role: "Edge AI and IoT Freelance Researcher", period: "Ongoing", description: "Developing automated testing Edge Artificial Intelligence workflows and IoT architectures utilizing Microcontroller and Fetch/Fast API." },
-    { role: "DEVCON Manila Volunteer", period: "Ongoing", description: "Volunteering for DEVCON Manila chapter throughout the events" }
+    { role: "Auren AI - Founder and CEO", period: "Present", description: "An Artificial Intelligence, Machine Learning, and SaaS startup company providing Software-as-a-Service solutions to other companies." },
+    { role: "Data Engineering Pilipinas Associate", period: "Ongoing", description: "Collaborated with other data engineers at Data Engineering Pilipinas community and organization." },
+    { role: "DEVCON Manila Volunteer", period: "Ongoing", description: "Volunteering for DEVCON Manila chapter throughout the events, specifically in tech team." },
+    { role: "Google Developer Group on Campus - Machine Learning Cadet", period: "Ongoing", description: "Machine Learning Cadet in Google  Developer Group on Campus - PUP Manila branch."},
+    { role: "IECEP Manila Student Chapter Associate", period: "Ongoing", description: "An associate in IECEP Manila Student Chapter, the national organization for ECE students."}
   ],
   achievements: [
     "DataCamp: AI and Data Engineering Scholar from December 2025 to Present. A Leaderboard learner in DC.",
@@ -42,7 +44,18 @@ export const portfolioData = {
   certificates: [
     { id: "c1", title: "DataCamp Scholar", tag: "Data Eng / AI", description: "Completed rigorous AI and Data Engineering tracks, reaching leaderboard status.", image: "/datacamp-cert.jpg" },
     { id: "c2", title: "Math Wizard", tag: "UPMC 2026", description: "Nationwide competitor tackling matrix polynomials and inverse integral calculus.", image: "/math-wizard.jpg" },
-    { id: "c3", title: "Top #1 Ideathon", tag: "DOST Pylonn", description: "Recognized within the university engineering track for academic excellence.", image: "/iskolar.jpg" }
+    { id: "c3", title: "Top #1 Ideathon", tag: "DOST Pylon", description: "Recognized within the university engineering track for academic excellence.", image: "/iskolar.jpg" },
+    { id: "c4", title: "Enancing Wireless Performance", tag: "IECEP", description: "Certification for wireless device webinar and training.", image: "/wireless.jpg"},
+    { id: "c5", title: "Leadership in Engineering", tag: "IECEP", description: "Certification for leading a team or the nation as an engineer.",  image: "/leadership.jpg"},
+    { id: "c6", title: "Avionics Unlocked", tag: "IECEP", description: "Certification for webinar as Avionics in the filed of Electronics Engineering", image: "/avionics.jpg"},
+    { id: "c7", title: "Where Wires Meet the Waves", tag: "IECEP", description: "Certiication for underwater related jobs and activities as an ECE", image: "/waves.jpg"},
+    { id: "c8", title: "The AI-Enabled Electronics Engineer", tag: "IECEP", description: "Certification on how ECE will engage in AI enabled era", image: "/ai.jpg"},
+    { id: "c9", title: "The Virtual  Aetelier", tag: "IECEP", description: "Simulation training of electronics, utilizing the Multisim", image: "/aetelier.jpg"},
+    { id: "c10", title: "The Silicon Fiber", tag: "IECEP", description: "Chip and integrated circuit designing seminar compressed to engage semiconductor", image: "/silicon.jpg"},
+    { id: "c11", title: "AI on Jetson Nano", tag: "NVIDIA", description: "Certification on AI building in Nvidia Deep Learning Institute", image: "/nvidia.jpg"},
+    { id: "c12", title: "Generative AI and Prompt Engineering", tag: "IECEP", description: "Prompt engineering for Generative AI in the pursuit of a better academic impact", image: "/genai.jpg"},
+    { id: "c13", title: "Cybersecurity Fundamentals", tag: "AWS Learning Club - Polar", description: "Cybersecurty fundamentals compressed in one workshop for easier understanding", image: "/cybersec.jpeg"}
+
   ],
   projects: [
     { id: "1", title: "BeMotion", tag: "IoT / Embedded", description: "An integrated IoT aquarium environment using sensor automation to maintain optimal aquatic parameters.", image: "/aquasmart.jpg" },
