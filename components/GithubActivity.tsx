@@ -18,7 +18,7 @@ export default function GithubActivity() {
       [1, 1, 1, 0, 1, 1, 3], // Col 6
       [3, 3, 4, 0, 0, 0, 3], // Col 7 (Early August - dark spike)
       [1, 2, 2, 2, 0, 0, 0], // Col 8
-      [3, 1, 1, 1, 0, 0, 0], // Col 9
+      [3, 1, 1, 3, 1, 0, 0], // Col 9
       [0, 0, 0, 0, 0, 0, 0]  // Col 10 (Trailing blocks)
     ];
 
