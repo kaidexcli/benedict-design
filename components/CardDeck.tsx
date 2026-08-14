@@ -14,9 +14,10 @@ type CardItem = {
 type CardDeckProps = {
   title: string;
   items?: CardItem[];
+  id?: string;
 };
 
-export default function CardDeck({ title, items = [] }: CardDeckProps) {
+export default function CardDeck({ title, items = [], id }: CardDeckProps) {
   const [cards, setCards] = useState(items);
   const [isFlipping, setIsFlipping] = useState(false);
 
@@ -38,7 +39,7 @@ export default function CardDeck({ title, items = [] }: CardDeckProps) {
   };
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div id={id} className="w-full flex flex-col items-center">
       {/* Header */}
       <div className="w-full flex justify-between items-end mb-10 border-b border-neutral-100 pb-2">
          <h3 className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">{title}</h3>
