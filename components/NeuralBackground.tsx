@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePortfolio } from "@/context/PortfolioContext";
 
 export default function NeuralBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { particleColor, particleSpeed, particleDensity } = usePortfolio();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -26,22 +28,57 @@ export default function NeuralBackground() {
     };
     setCanvasSize();
 
-    window.addEventListener("resize", () => {
+    // Map speed configs
+    let speedFactor = 0.7;
+    if (particleSpeed === "paused") speedFactor = 0;
+    else if (particleSpeed === "slow") speedFactor = 0.25;
+    else if (particleSpeed === "fast") speedFactor = 2.2;
+
+    // Map color configs
+    let particleFillStyle = "rgba(0, 0, 0, 0.15)";
+    let connectionStrokeStyle = "rgba(0, 0, 0, 0.08)";
+    let mouseGlowStyle = "rgba(47, 129, 247, 0.15)";
+
+    if (particleColor === "amber") {
+      particleFillStyle = "rgba(217, 119, 6, 0.25)";
+      connectionStrokeStyle = "rgba(217, 119, 6, 0.1)";
+      mouseGlowStyle = "rgba(217, 119, 6, 0.25)";
+    } else if (particleColor === "emerald") {
+      particleFillStyle = "rgba(16, 185, 129, 0.25)";
+      connectionStrokeStyle = "rgba(16, 185, 129, 0.1)";
+      mouseGlowStyle = "rgba(16, 185, 129, 0.25)";
+    } else if (particleColor === "cyan") {
+      particleFillStyle = "rgba(6, 182, 212, 0.3)";
+      connectionStrokeStyle = "rgba(6, 182, 212, 0.12)";
+      mouseGlowStyle = "rgba(6, 182, 212, 0.3)";
+    }
+
+    // Map density configs
+    let densityDivisor = 15000;
+    if (particleDensity === "low") densityDivisor = 32000;
+    else if (particleDensity === "high") densityDivisor = 6500;
+
+    const handleResize = () => {
       setCanvasSize();
       initParticles();
-    });
+    };
 
-    window.addEventListener("mousemove", (event) => {
-      mouse.x = event.x;
-      mouse.y = event.y;
-    });
+    window.addEventListener("resize", handleResize);
 
-    window.addEventListener("mouseout", () => {
+    const handleMouseMove = (event: MouseEvent) => {
+      mouse.x = event.clientX;
+      mouse.y = event.clientY;
+    };
+
+    const handleMouseOut = () => {
       mouse.x = -9999;
       mouse.y = -9999;
-    });
+    };
 
-    // Particle Object - Moved up for cleaner TypeScript compilation
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseout", handleMouseOut);
+
+    // Particle Object
     class Particle {
       x: number;
       y: number;
@@ -50,28 +87,26 @@ export default function NeuralBackground() {
       speedY: number;
 
       constructor() {
-        // Added the non-null assertion (!) to canvas
         this.x = Math.random() * canvas!.width;
         this.y = Math.random() * canvas!.height;
         this.size = Math.random() * 1.5 + 0.5; 
-        this.speedX = (Math.random() - 0.5) * 0.5; 
-        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.speedX = (Math.random() - 0.5) * speedFactor; 
+        this.speedY = (Math.random() - 0.5) * speedFactor;
       }
 
       update() {
+        if (speedFactor === 0) return;
         this.x += this.speedX;
         this.y += this.speedY;
 
-        // Added the non-null assertion (!) to canvas
         if (this.x > canvas!.width || this.x < 0) this.speedX = -this.speedX;
         if (this.y > canvas!.height || this.y < 0) this.speedY = -this.speedY;
       }
 
       draw() {
-        // Added the non-null assertion (!) to ctx
         ctx!.beginPath();
         ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx!.fillStyle = "rgba(0, 0, 0, 0.15)";
+        ctx!.fillStyle = particleFillStyle;
         ctx!.fill();
       }
     }
@@ -80,7 +115,7 @@ export default function NeuralBackground() {
 
     const initParticles = () => {
       particlesArray = [];
-      const numberOfParticles = (canvas.width * canvas.height) / 15000;
+      const numberOfParticles = (canvas.width * canvas.height) / densityDivisor;
       for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
       }
@@ -96,7 +131,9 @@ export default function NeuralBackground() {
 
           if (distance < 100) {
             opacityValue = 1 - distance / 100;
-            ctx.strokeStyle = `rgba(0, 0, 0, ${opacityValue * 0.08})`; 
+            ctx.strokeStyle = connectionStrokeStyle.replace("0.08", (opacityValue * 0.08).toString())
+                                                   .replace("0.12", (opacityValue * 0.12).toString())
+                                                   .replace("0.1", (opacityValue * 0.1).toString());
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -111,7 +148,9 @@ export default function NeuralBackground() {
 
         if (distanceMouse < mouse.radius) {
           opacityValue = 1 - distanceMouse / mouse.radius;
-          ctx.strokeStyle = `rgba(47, 129, 247, ${opacityValue * 0.15})`; 
+          ctx.strokeStyle = mouseGlowStyle.replace("0.15", (opacityValue * 0.2).toString())
+                                          .replace("0.25", (opacityValue * 0.3).toString())
+                                          .replace("0.3", (opacityValue * 0.35).toString());
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -136,9 +175,11 @@ export default function NeuralBackground() {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("resize", setCanvasSize);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseout", handleMouseOut);
     };
-  }, []);
+  }, [particleColor, particleSpeed, particleDensity]);
 
   return (
     <canvas
