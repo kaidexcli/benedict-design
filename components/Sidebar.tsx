@@ -203,7 +203,7 @@ export default function Sidebar() {
             >
               <div className="flex items-center gap-2.5 min-w-0">
                 <Sparkles className={`w-4 h-4 text-neutral-400 ${expandedPanel === "ai" ? "text-neutral-800" : ""}`} />
-                {!isMinimized && <span className="font-medium text-xs truncate">Ask AI Copilot</span>}
+                {!isMinimized && <span className="font-medium text-xs truncate">Ask Claudex</span>}
               </div>
               {!isMinimized && (
                 expandedPanel === "ai" ? <ChevronUp className="w-3.5 h-3.5 text-neutral-400" /> : <ChevronDown className="w-3.5 h-3.5 text-neutral-400" />
