@@ -5,7 +5,7 @@ export const portfolioData = {
   contactInfo: "benedictfusin99@gmail.com",
   socials: [
     { name: "github", url: "https://github.com/kaidexcli" },
-    { name: "linkedin", url: "https://linkedin.com/" },
+    { name: "linkedin", url: "https://linkedin.com/in/benedictfusin1ece" },
     { name: "email", url: "mailto:benedictfusin99@gmail.com" },
   ],
   sidebarMenu: [
