@@ -67,7 +67,7 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
   const [terminalHistory, setTerminalHistory] = useState<TerminalMessage[]>([
     {
       sender: "system",
-      text: "BENEDICT-AI CORE v1.0.4. Ready for queries.",
+      text: "Claude-AI CORE v1.0.4. Ready for queries.",
     },
     {
       sender: "assistant",
