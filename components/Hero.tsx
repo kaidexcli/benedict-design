@@ -5,7 +5,6 @@ export default function Hero() {
   return (
     <section className="flex flex-col items-center text-center max-w-lg mx-auto mb-16">
       <div className="relative w-20 h-20 mb-5 rounded-full overflow-hidden border border-neutral-200 bg-neutral-100 flex items-center justify-center shadow-lg">
-        {/* Replace with your actual image path placed in the public/ folder */}
         <Image 
           src="/benedict.jpg" 
           alt={portfolioData.name} 
@@ -21,7 +20,6 @@ export default function Hero() {
       </p>
       
       <div className="flex flex-wrap justify-center gap-2">
-        {/* techStack is not in the data structure, adding it here or removing this section */}
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ type CardItem = {
   title: string;
   tag: string;
   description: string;
-  image?: string; // <-- 1. The '?' makes this optional so TypeScript stops yelling!
+  image?: string; 
 };
 
 type CardDeckProps = {
@@ -91,7 +91,7 @@ export default function CardDeck({ title, items = [], id }: CardDeckProps) {
                 ${isTop ? "cursor-pointer pointer-events-auto" : "pointer-events-none"}
               `}
             >
-              {/* --- BACKGROUND IMAGE & OVERLAY --- */}
+              {/*  BACKGROUND IMAGE & OVERLAY  */}
               <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden z-0">
                 <img 
                   // 2. Added a fallback here! If item.image is missing, it uses your profile pic.
@@ -102,7 +102,7 @@ export default function CardDeck({ title, items = [], id }: CardDeckProps) {
                 <div className="absolute inset-0 bg-linear-to-b from-black/10 via-black/50 to-black/95" />
               </div>
 
-              {/* --- CARD CONTENT --- */}
+              {/*  CARD CONTENT  */}
               <div className="relative z-10 w-full h-full p-6 flex flex-col justify-between">
                   {/* Top: Pill Tag */}
                   <div className="flex flex-wrap gap-2">
