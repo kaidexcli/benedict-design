@@ -66,11 +66,11 @@ export default function Intro() {
                   initial={{ scale: 1.6 }}
                   animate={{ scale: 1.05 }}
                   transition={{ duration: 3, ease: "easeOut" }}
-                  className="w-full h-full relative"
+                  className="absolute top-4 left-0 md:top-8 md:left-0 w-[288px] h-72 md:w-98 md:h-112 max-w-none origin-center"
                 >
                   <Image 
                     src="/benedict.jpg" 
-                    alt="Benedict" 
+                    alt="Benedict Window 1" 
                     fill 
                     className="object-cover" 
                   />
@@ -96,11 +96,11 @@ export default function Intro() {
                   initial={{ scale: 1.6 }}
                   animate={{ scale: 1.05 }}
                   transition={{ duration: 3, ease: "easeOut", delay: 0.2 }}
-                  className="w-full h-full relative"
+                  className="absolute -top-4 -left-32 md:-top-8 md:-left-42 w-[288px] h-72 md:w-98 md:h-112 max-w-none origin-center"
                 >
                   <Image 
-                    src="/aetelier.jpg" 
-                    alt="Aetelier" 
+                    src="/benedict.jpg" 
+                    alt="Benedict Window 2" 
                     fill 
                     className="object-cover" 
                   />
