@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react"; 
 import { portfolioData } from "@/data";
-import TechStack from "@/components/TechStack"; 
+import TechStack from "@/components/tech-stack"; 
 import GithubActivity from "@/components/github-activity"; 
 import CardDeck from "@/components/card-deck"; 
 
