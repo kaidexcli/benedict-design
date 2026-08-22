@@ -1,20 +1,30 @@
 @import "tailwindcss";
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-white text-neutral-900 antialiased font-sans;
+    @apply bg-neutral-50 text-neutral-900 antialiased font-sans;
   }
 }
 
 @layer utilities {
   .plain-text {
-    @apply font-mono text-xs uppercase tracking-widest text-neutral-500;
+    @apply font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500;
+  }
+  .bento-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4;
+  }
+  .bento-cell {
+    @apply bg-white border border-neutral-100 rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300;
   }
 }
 
 @layer utilities {
   .custom-scrollbar::-webkit-scrollbar {
     height: 4px;
+    width: 4px;
   }
   .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent;
@@ -22,5 +32,12 @@
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background-color: #e5e5e5;
     border-radius: 20px;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
