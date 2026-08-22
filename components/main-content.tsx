@@ -14,41 +14,47 @@ export default function MainContent() {
         <div className="relative flex items-center shrink-0 mt-4 pl-6">
           {/* Left Rhomboid (High) */}
           <div
-            className="w-32 h-48 md:w-40 md:h-60 overflow-hidden relative shadow-xl -translate-y-6 z-10 bg-neutral-100"
+            className="w-32 h-48 md:w-40 md:h-60 overflow-hidden relative shadow-xl -translate-y-6 z-10 bg-neutral-100 group"
             style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
           >
-            <Image 
-              src="/benedict.jpg" 
-              alt="Avatar 1" 
-              fill 
-              className="object-cover scale-110 grayscale hover:grayscale-0 transition-all duration-500" 
-            />
+            <div className="absolute top-6 left-0 w-88 h-60 md:w-108 md:h-72 max-w-none">
+              <Image 
+                src="/benedict.jpg" 
+                alt="Benedict Window 1" 
+                fill 
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+              />
+            </div>
           </div>
           
           {/* Middle Rhomboid (Low) */}
           <div
-            className="w-32 h-48 md:w-40 md:h-60 overflow-hidden relative shadow-xl translate-y-6 z-20 -ml-6 md:-ml-8 bg-neutral-100"
+            className="w-32 h-48 md:w-40 md:h-60 overflow-hidden relative shadow-xl translate-y-6 z-20 -ml-6 md:-ml-8 bg-neutral-100 group"
             style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
           >
-            <Image 
-              src="/ai.jpg" 
-              alt="Avatar 2" 
-              fill 
-              className="object-cover scale-110 grayscale hover:grayscale-0 transition-all duration-500" 
-            />
+            <div className="absolute -top-6 -left-26 md:-left-32 w-88 h-60 md:w-108 md:h-72 max-w-none">
+              <Image 
+                src="/benedict.jpg" 
+                alt="Benedict Window 2" 
+                fill 
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+              />
+            </div>
           </div>
 
           {/* Right Rhomboid (High) */}
           <div
-            className="w-32 h-48 md:w-40 md:h-60 overflow-hidden relative shadow-xl -translate-y-6 z-30 -ml-2 md:-ml-4 bg-neutral-100"
+            className="w-32 h-48 md:w-40 md:h-60 overflow-hidden relative shadow-xl -translate-y-6 z-30 -ml-2 md:-ml-4 bg-neutral-100 group"
             style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
           >
-            <Image 
-              src="/aetelier.jpg" 
-              alt="Avatar 3" 
-              fill 
-              className="object-cover scale-110 grayscale hover:grayscale-0 transition-all duration-500" 
-            />
+            <div className="absolute top-6 -left-56 md:-left-68 w-88 h-60 md:w-108 md:h-72 max-w-none">
+              <Image 
+                src="/benedict.jpg" 
+                alt="Benedict Window 3" 
+                fill 
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+              />
+            </div>
           </div>
         </div>
 
