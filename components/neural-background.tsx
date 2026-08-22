@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePortfolio } from "@/context/PortfolioContext";
+import { usePortfolio } from "@/context/portfolio-context";
 
 export default function NeuralBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
