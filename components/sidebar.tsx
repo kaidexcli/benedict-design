@@ -8,7 +8,7 @@ import {
   Cpu, Terminal, Sliders, RefreshCw, Sparkles, Trash2, ChevronDown, ChevronUp
 } from "lucide-react";
 import { portfolioData } from "@/data";
-import { usePortfolio, ParticleColor } from "@/context/PortfolioContext";
+import { usePortfolio, ParticleColor } from "@/context/portfolio-context";
 
 // Custom inline SVG for GitHub
 const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
