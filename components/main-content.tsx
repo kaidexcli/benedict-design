@@ -9,19 +9,58 @@ export default function MainContent() {
   return (
     <section className="space-y-12 flex-1 w-full max-w-4xl pb-24">
       {/* Header & Bio */}
-      <div className="flex flex-col sm:flex-row items-start gap-6 lg:gap-8">
-        <div className="relative w-28 h-28 shrink-0 border border-neutral-200 rounded-sm overflow-hidden mt-1">
-             <Image src="/benedict.jpg" alt="Avatar" fill className="object-cover grayscale" />
+      <div className="flex flex-col xl:flex-row items-center xl:items-start gap-8 lg:gap-16 pt-4">
+        {/* Large Rhomboid Picture Frame Design (High, Low, High) */}
+        <div className="relative flex items-center shrink-0 mt-4 pl-6">
+          {/* Left Rhomboid (High) */}
+          <div
+            className="w-32 h-48 md:w-40 md:h-60 overflow-hidden relative shadow-xl -translate-y-6 z-10 bg-neutral-100"
+            style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
+          >
+            <Image 
+              src="/benedict.jpg" 
+              alt="Avatar 1" 
+              fill 
+              className="object-cover scale-110 grayscale hover:grayscale-0 transition-all duration-500" 
+            />
+          </div>
+          
+          {/* Middle Rhomboid (Low) */}
+          <div
+            className="w-32 h-48 md:w-40 md:h-60 overflow-hidden relative shadow-xl translate-y-6 z-20 -ml-6 md:-ml-8 bg-neutral-100"
+            style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
+          >
+            <Image 
+              src="/ai.jpg" 
+              alt="Avatar 2" 
+              fill 
+              className="object-cover scale-110 grayscale hover:grayscale-0 transition-all duration-500" 
+            />
+          </div>
+
+          {/* Right Rhomboid (High) */}
+          <div
+            className="w-32 h-48 md:w-40 md:h-60 overflow-hidden relative shadow-xl -translate-y-6 z-30 -ml-2 md:-ml-4 bg-neutral-100"
+            style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
+          >
+            <Image 
+              src="/aetelier.jpg" 
+              alt="Avatar 3" 
+              fill 
+              className="object-cover scale-110 grayscale hover:grayscale-0 transition-all duration-500" 
+            />
+          </div>
         </div>
+
         
-        <div className="space-y-3">
-            <h1 className="text-2xl font-medium tracking-tight text-neutral-900">{portfolioData.name}</h1>
-            <p className="text-sm text-neutral-600 leading-relaxed max-w-md text-balance">
+        <div className="space-y-6 mt-4 xl:mt-8">
+            <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-neutral-900">{portfolioData.name}</h1>
+            <p className="text-base lg:text-lg text-neutral-600 leading-relaxed max-w-xl text-balance">
                 {portfolioData.intro}
             </p>
-            <div className="flex gap-4 text-xs font-mono text-neutral-400 pt-2">
+            <div className="flex gap-6 text-sm font-mono text-neutral-400 pt-2">
                 {portfolioData.socials.map(social => (
-                    <a key={social.name} href={social.url} className="hover:text-neutral-900 transition-colors">
+                    <a key={social.name} href={social.url} className="hover:text-neutral-900 transition-colors uppercase tracking-widest">
                         {social.name} /
                     </a>
                 ))}
