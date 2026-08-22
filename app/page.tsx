@@ -1,13 +1,12 @@
 import Sidebar from "@/components/sidebar";
 import MainContent from "@/components/main-content";
 import NeuralBackground from "@/components/neural-background";
+import Intro from "@/components/intro/intro";
 
 export default function Home() {
   return (
     <>
-      
-      {/* Scrollable spacer for the loading animation transition */}
-      <div className="h-[20vh] w-full" />
+      <Intro />
 
       <main className="min-h-screen bg-transparent text-neutral-900 p-6 md:p-12 lg:p-20 overflow-x-hidden relative">
         
