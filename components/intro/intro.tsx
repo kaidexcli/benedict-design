@@ -43,7 +43,7 @@ export default function Intro() {
             opacity: 0, 
             transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.8 } 
           }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-50 overflow-hidden"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-linear-to-br from-indigo-50 via-white to-cyan-50 overflow-hidden"
         >
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12 p-8">
             {/* Rhomboid Container */}
@@ -74,7 +74,7 @@ export default function Intro() {
                     fill 
                     className="object-cover" 
                   />
-                  <div className="absolute inset-0 bg-neutral-900/10 mix-blend-overlay"></div>
+                  <div className="absolute inset-0 bg-indigo-600/10 mix-blend-overlay"></div>
                 </motion.div>
               </motion.div>
               
@@ -104,7 +104,7 @@ export default function Intro() {
                     fill 
                     className="object-cover" 
                   />
-                  <div className="absolute inset-0 bg-neutral-900/10 mix-blend-overlay"></div>
+                  <div className="absolute inset-0 bg-indigo-600/10 mix-blend-overlay"></div>
                 </motion.div>
               </motion.div>
             </div>
@@ -116,7 +116,7 @@ export default function Intro() {
               {text.map((word, i) => (
                 <motion.div
                   key={i}
-                  className={`text-3xl md:text-5xl lg:text-6xl uppercase tracking-widest text-neutral-900 flex drop-shadow-xl ${spaceGrotesk.className}`}
+                  className={`text-3xl md:text-5xl lg:text-6xl uppercase tracking-widest text-indigo-950 flex drop-shadow-xl ${spaceGrotesk.className}`}
                 >
                   {word.split("").map((char, j) => {
                     const particle = getParticle(i, j);

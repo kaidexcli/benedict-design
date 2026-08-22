@@ -145,7 +145,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className={`sticky top-6 shrink-0 transition-all duration-300 ease-in-out border-r border-neutral-100 ${isMinimized ? 'w-20 pr-0' : 'w-72 pr-8'} h-[calc(100vh-3rem)] hidden md:flex flex-col overflow-hidden`}>
+    <aside className={`sticky top-6 shrink-0 transition-all duration-300 ease-in-out border-r border-indigo-100/60 ${isMinimized ? 'w-20 pr-0' : 'w-72 pr-8'} h-[calc(100vh-3rem)] hidden md:flex flex-col overflow-hidden`}>
       {/* Header */}
       <div className={`flex items-center mb-6 ${isMinimized ? 'justify-center' : 'justify-between'}`}>
         {!isMinimized && (
@@ -153,16 +153,16 @@ export default function Sidebar() {
             <div className="text-sm font-semibold tracking-tight truncate">{portfolioData.name}</div>
             <div className="flex items-center gap-1.5 mt-1">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
               </span>
-              <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-wider">Available for work</span>
+              <span className="text-[10px] text-indigo-400 font-mono uppercase tracking-wider">Available for work</span>
             </div>
           </div>
         )}
         <button 
           onClick={() => setIsMinimized(!isMinimized)} 
-          className="p-1.5 text-neutral-400 hover:text-neutral-900 transition-colors rounded-md hover:bg-neutral-50 shrink-0 cursor-pointer"
+          className="p-1.5 text-indigo-400 hover:text-indigo-950 transition-colors rounded-md hover:bg-indigo-50/30 shrink-0 cursor-pointer"
           title="Toggle Sidebar"
         >
           {isMinimized ? <PanelRightClose className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
@@ -173,44 +173,44 @@ export default function Sidebar() {
       <div className="flex-1 overflow-y-auto no-scrollbar space-y-5 pr-1 py-2">
         {/* Navigation */}
         <nav className="space-y-1">
-          {!isMinimized && <p className="text-[9px] text-neutral-400 font-mono uppercase tracking-[0.2em] mb-3 ml-1">Navigation</p>}
+          {!isMinimized && <p className="text-[9px] text-indigo-400 font-mono uppercase tracking-[0.2em] mb-3 ml-1">Navigation</p>}
           {navItems.map((item) => (
             <a 
               href={item.href} 
               key={item.name} 
               className={`flex items-center py-1.5 px-3 rounded-md transition-all duration-200 group ${
                 (activeSection === item.href.replace("#", "") || (activeSection === "intro" && item.href === "#"))
-                  ? 'bg-neutral-900 text-white shadow-sm' 
-                  : 'text-neutral-500 hover:text-neutral-900 hover:bg-neutral-50'
+                  ? 'bg-indigo-600 text-white shadow-sm' 
+                  : 'text-slate-500 hover:text-indigo-950 hover:bg-indigo-50/30'
               } ${isMinimized ? 'justify-center' : 'gap-3'}`}
             >
-              <item.icon className={`w-4 h-4 shrink-0 ${(activeSection === item.href.replace("#", "") || (activeSection === "intro" && item.href === "#")) ? 'text-white' : 'text-neutral-400 group-hover:text-neutral-900'}`} />
+              <item.icon className={`w-4 h-4 shrink-0 ${(activeSection === item.href.replace("#", "") || (activeSection === "intro" && item.href === "#")) ? 'text-white' : 'text-indigo-400 group-hover:text-indigo-950'}`} />
               {!isMinimized && <span className="text-xs font-medium truncate">{item.name}</span>}
             </a>
           ))}
         </nav>
 
         {/* Dynamic Interactive Widgets Accordion */}
-        <div className="pt-2 border-t border-neutral-100/70 space-y-2">
-          {!isMinimized && <p className="text-[9px] text-neutral-400 font-mono uppercase tracking-[0.2em] mb-2.5 ml-1">Engine Console</p>}
+        <div className="pt-2 border-t border-indigo-100/60 space-y-2">
+          {!isMinimized && <p className="text-[9px] text-indigo-400 font-mono uppercase tracking-[0.2em] mb-2.5 ml-1">Engine Console</p>}
           
           {/* 1. Ask AI Copilot Panel */}
-          <div className="border border-neutral-100 rounded-lg bg-neutral-50/20 overflow-hidden">
+          <div className="border border-indigo-100/60 rounded-lg bg-indigo-50/30 overflow-hidden">
             <button
               onClick={() => togglePanel("ai")}
-              className={`w-full flex items-center justify-between p-2.5 text-xs text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 transition-all ${isMinimized ? 'justify-center' : ''}`}
+              className={`w-full flex items-center justify-between p-2.5 text-xs text-slate-600 hover:text-indigo-950 hover:bg-indigo-50/30 transition-all ${isMinimized ? 'justify-center' : ''}`}
               title="Ask AI Copilot"
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <Sparkles className={`w-4 h-4 text-neutral-400 ${expandedPanel === "ai" ? "text-neutral-800" : ""}`} />
+                <Sparkles className={`w-4 h-4 text-indigo-400 ${expandedPanel === "ai" ? "text-slate-800" : ""}`} />
                 {!isMinimized && <span className="font-medium text-xs truncate">Ask Claudex</span>}
               </div>
               {!isMinimized && (
-                expandedPanel === "ai" ? <ChevronUp className="w-3.5 h-3.5 text-neutral-400" /> : <ChevronDown className="w-3.5 h-3.5 text-neutral-400" />
+                expandedPanel === "ai" ? <ChevronUp className="w-3.5 h-3.5 text-indigo-400" /> : <ChevronDown className="w-3.5 h-3.5 text-indigo-400" />
               )}
             </button>
             {!isMinimized && expandedPanel === "ai" && (
-              <div className="px-3 pb-3 border-t border-neutral-100 bg-white">
+              <div className="px-3 pb-3 border-t border-indigo-100/60 bg-white">
                 <div className="flex flex-col gap-3 pt-3 pb-1 text-xs">
                   {/* Term History */}
                   <div className="bg-neutral-950 text-neutral-200 font-mono text-[9px] p-2.5 rounded-md h-32 overflow-y-auto space-y-2 select-text border border-neutral-800 custom-scrollbar">
@@ -227,7 +227,7 @@ export default function Sidebar() {
                       </div>
                     ))}
                     {isTyping && (
-                      <div className="text-neutral-400 animate-pulse">
+                      <div className="text-indigo-400 animate-pulse">
                         <span className="font-bold opacity-70">AI&gt; </span>
                         Thinking...
                       </div>
@@ -237,11 +237,11 @@ export default function Sidebar() {
                   {/* Prompt buttons */}
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <p className="text-[9px] text-neutral-400 font-mono uppercase tracking-wider">Select Query</p>
+                      <p className="text-[9px] text-indigo-400 font-mono uppercase tracking-wider">Select Query</p>
                       <button 
                         onClick={clearTerminal} 
                         disabled={isTyping}
-                        className="text-[9px] text-neutral-400 hover:text-neutral-900 font-mono flex items-center gap-0.5 cursor-pointer disabled:opacity-50"
+                        className="text-[9px] text-indigo-400 hover:text-indigo-950 font-mono flex items-center gap-0.5 cursor-pointer disabled:opacity-50"
                       >
                         <Trash2 className="w-2.5 h-2.5" /> Clear
                       </button>
@@ -258,7 +258,7 @@ export default function Sidebar() {
                           key={q.id}
                           disabled={isTyping}
                           onClick={() => askAI(q.id, q.label)}
-                          className="text-left py-1.5 px-2 text-[9px] bg-neutral-50 hover:bg-neutral-100 border border-neutral-200/50 text-neutral-600 hover:text-neutral-900 transition-all rounded truncate cursor-pointer disabled:opacity-50"
+                          className="text-left py-1.5 px-2 text-[9px] bg-indigo-50/30 hover:bg-indigo-100/50 border border-indigo-200/60/50 text-slate-600 hover:text-indigo-950 transition-all rounded truncate cursor-pointer disabled:opacity-50"
                           title={q.label}
                         >
                           {q.label}
@@ -272,29 +272,29 @@ export default function Sidebar() {
           </div>
 
           {/* 2. Neural Background Settings Panel */}
-          <div className="border border-neutral-100 rounded-lg bg-neutral-50/20 overflow-hidden">
+          <div className="border border-indigo-100/60 rounded-lg bg-indigo-50/30 overflow-hidden">
             <button
               onClick={() => togglePanel("neural")}
-              className={`w-full flex items-center justify-between p-2.5 text-xs text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 transition-all ${isMinimized ? 'justify-center' : ''}`}
+              className={`w-full flex items-center justify-between p-2.5 text-xs text-slate-600 hover:text-indigo-950 hover:bg-indigo-50/30 transition-all ${isMinimized ? 'justify-center' : ''}`}
               title="Neural Customizer"
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <Sliders className={`w-4 h-4 text-neutral-400 ${expandedPanel === "neural" ? "text-neutral-800" : ""}`} />
+                <Sliders className={`w-4 h-4 text-indigo-400 ${expandedPanel === "neural" ? "text-slate-800" : ""}`} />
                 {!isMinimized && <span className="font-medium text-xs truncate">Neural Customizer</span>}
               </div>
               {!isMinimized && (
-                expandedPanel === "neural" ? <ChevronUp className="w-3.5 h-3.5 text-neutral-400" /> : <ChevronDown className="w-3.5 h-3.5 text-neutral-400" />
+                expandedPanel === "neural" ? <ChevronUp className="w-3.5 h-3.5 text-indigo-400" /> : <ChevronDown className="w-3.5 h-3.5 text-indigo-400" />
               )}
             </button>
             {!isMinimized && expandedPanel === "neural" && (
-              <div className="px-3 pb-3 border-t border-neutral-100 bg-white">
+              <div className="px-3 pb-3 border-t border-indigo-100/60 bg-white">
                 <div className="space-y-4 pt-3 pb-1 text-xs">
                   {/* Color */}
                   <div className="space-y-1.5">
-                    <p className="text-[9px] text-neutral-400 font-mono uppercase tracking-wider">Accent Theme</p>
+                    <p className="text-[9px] text-indigo-400 font-mono uppercase tracking-wider">Accent Theme</p>
                     <div className="flex gap-2.5">
                       {[
-                        { id: "charcoal", color: "bg-neutral-800", ring: "ring-neutral-800" },
+                        { id: "charcoal", color: "bg-indigo-500", ring: "ring-neutral-800" },
                         { id: "amber", color: "bg-amber-500", ring: "ring-amber-500" },
                         { id: "emerald", color: "bg-emerald-500", ring: "ring-emerald-500" },
                         { id: "cyan", color: "bg-cyan-500", ring: "ring-cyan-500" },
@@ -313,7 +313,7 @@ export default function Sidebar() {
 
                   {/* Speed */}
                   <div className="space-y-1.5">
-                    <p className="text-[9px] text-neutral-400 font-mono uppercase tracking-wider">Dynamics Speed</p>
+                    <p className="text-[9px] text-indigo-400 font-mono uppercase tracking-wider">Dynamics Speed</p>
                     <div className="grid grid-cols-4 gap-1">
                       {(["paused", "slow", "normal", "fast"] as const).map((spd) => (
                         <button
@@ -321,8 +321,8 @@ export default function Sidebar() {
                           onClick={() => setParticleSpeed(spd)}
                           className={`py-1 text-[9px] font-mono rounded uppercase tracking-tighter text-center transition-all cursor-pointer ${
                             particleSpeed === spd
-                              ? "bg-neutral-900 text-white font-bold"
-                              : "bg-neutral-50 text-neutral-500 hover:bg-neutral-100"
+                              ? "bg-indigo-600 text-white font-bold"
+                              : "bg-indigo-50/30 text-slate-500 hover:bg-indigo-100/50"
                           }`}
                         >
                           {spd}
@@ -333,7 +333,7 @@ export default function Sidebar() {
 
                   {/* Density */}
                   <div className="space-y-1.5">
-                    <p className="text-[9px] text-neutral-400 font-mono uppercase tracking-wider">Node Density</p>
+                    <p className="text-[9px] text-indigo-400 font-mono uppercase tracking-wider">Node Density</p>
                     <div className="grid grid-cols-3 gap-1">
                       {(["low", "medium", "high"] as const).map((dns) => (
                         <button
@@ -341,8 +341,8 @@ export default function Sidebar() {
                           onClick={() => setParticleDensity(dns)}
                           className={`py-1 text-[9px] font-mono rounded uppercase tracking-tighter text-center transition-all cursor-pointer ${
                             particleDensity === dns
-                              ? "bg-neutral-900 text-white font-bold"
-                              : "bg-neutral-50 text-neutral-500 hover:bg-neutral-100"
+                              ? "bg-indigo-600 text-white font-bold"
+                              : "bg-indigo-50/30 text-slate-500 hover:bg-indigo-100/50"
                           }`}
                         >
                           {dns}
@@ -356,23 +356,23 @@ export default function Sidebar() {
           </div>
 
           {/* 3. System Monitor Panel */}
-          <div className="border border-neutral-100 rounded-lg bg-neutral-50/20 overflow-hidden">
+          <div className="border border-indigo-100/60 rounded-lg bg-indigo-50/30 overflow-hidden">
             <button
               onClick={() => togglePanel("telemetry")}
-              className={`w-full flex items-center justify-between p-2.5 text-xs text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 transition-all ${isMinimized ? 'justify-center' : ''}`}
+              className={`w-full flex items-center justify-between p-2.5 text-xs text-slate-600 hover:text-indigo-950 hover:bg-indigo-50/30 transition-all ${isMinimized ? 'justify-center' : ''}`}
               title="System Monitor"
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <Cpu className={`w-4 h-4 text-neutral-400 ${expandedPanel === "telemetry" ? "text-neutral-800" : ""}`} />
+                <Cpu className={`w-4 h-4 text-indigo-400 ${expandedPanel === "telemetry" ? "text-slate-800" : ""}`} />
                 {!isMinimized && <span className="font-medium text-xs truncate">System Monitor</span>}
               </div>
               {!isMinimized && (
-                expandedPanel === "telemetry" ? <ChevronUp className="w-3.5 h-3.5 text-neutral-400" /> : <ChevronDown className="w-3.5 h-3.5 text-neutral-400" />
+                expandedPanel === "telemetry" ? <ChevronUp className="w-3.5 h-3.5 text-indigo-400" /> : <ChevronDown className="w-3.5 h-3.5 text-indigo-400" />
               )}
             </button>
             {!isMinimized && expandedPanel === "telemetry" && (
-              <div className="px-3 pb-3 border-t border-neutral-100 bg-white">
-                <div className="space-y-3 pt-3 pb-1 text-xs font-mono text-neutral-500">
+              <div className="px-3 pb-3 border-t border-indigo-100/60 bg-white">
+                <div className="space-y-3 pt-3 pb-1 text-xs font-mono text-slate-500">
                   <div className="flex justify-between">
                     <span>STATUS:</span>
                     <span className={isSelfTesting ? "text-amber-500 animate-pulse font-bold" : "text-green-500 font-bold"}>
@@ -381,30 +381,30 @@ export default function Sidebar() {
                   </div>
                   <div className="flex justify-between">
                     <span>UPTIME:</span>
-                    <span className="text-neutral-800">{uptime}</span>
+                    <span className="text-slate-800">{uptime}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>CORE TEMP:</span>
-                    <span className={`transition-colors duration-300 ${cpuTemp > 45 ? 'text-amber-500 font-bold' : 'text-neutral-800'}`}>
+                    <span className={`transition-colors duration-300 ${cpuTemp > 45 ? 'text-amber-500 font-bold' : 'text-slate-800'}`}>
                       {cpuTemp}°C
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span>MEMORY:</span>
-                    <span className="text-neutral-800">{memoryLoad}%</span>
+                    <span className="text-slate-800">{memoryLoad}%</span>
                   </div>
                   <div className="flex justify-between">
                     <span>RF SIGNAL:</span>
-                    <span className="text-neutral-800">{snrSignal} dB</span>
+                    <span className="text-slate-800">{snrSignal} dB</span>
                   </div>
                   
                   {isSelfTesting && (
                     <div className="space-y-1.5 pt-1">
-                      <div className="flex justify-between text-[8px] text-neutral-400">
+                      <div className="flex justify-between text-[8px] text-indigo-400">
                         <span>CALIBRATION:</span>
                         <span>{selfTestProgress}%</span>
                       </div>
-                      <div className="w-full bg-neutral-100 h-1 rounded-full overflow-hidden">
+                      <div className="w-full bg-indigo-100/50 h-1 rounded-full overflow-hidden">
                         <div 
                           className="bg-amber-500 h-full transition-all duration-150" 
                           style={{ width: `${selfTestProgress}%` }}
@@ -416,9 +416,9 @@ export default function Sidebar() {
                   <button
                     onClick={triggerSelfTest}
                     disabled={isSelfTesting}
-                    className="w-full flex items-center justify-center gap-1.5 py-1.5 px-2 mt-1 rounded-md border border-neutral-200 bg-neutral-50 hover:bg-neutral-100 text-[10px] text-neutral-600 hover:text-neutral-900 transition-all font-sans font-medium cursor-pointer disabled:opacity-50"
+                    className="w-full flex items-center justify-center gap-1.5 py-1.5 px-2 mt-1 rounded-md border border-indigo-200/60 bg-indigo-50/30 hover:bg-indigo-100/50 text-[10px] text-slate-600 hover:text-indigo-950 transition-all font-sans font-medium cursor-pointer disabled:opacity-50"
                   >
-                    <RefreshCw className={`w-3 h-3 ${isSelfTesting ? 'animate-spin text-amber-500' : 'text-neutral-400'}`} />
+                    <RefreshCw className={`w-3 h-3 ${isSelfTesting ? 'animate-spin text-amber-500' : 'text-indigo-400'}`} />
                     {isSelfTesting ? "Calibrating..." : "Execute Self-Test"}
                   </button>
                 </div>
@@ -430,22 +430,22 @@ export default function Sidebar() {
       
       {/* Footer Info */}
       {!isMinimized && (
-        <div className="py-4 space-y-3.5 border-t border-neutral-100 mt-auto bg-white/50">
+        <div className="py-4 space-y-3.5 border-t border-indigo-100/60 mt-auto bg-white/50">
           <div className="flex justify-between items-end">
             <div className="space-y-0.5">
-              <p className="text-[9px] text-neutral-400 font-mono uppercase tracking-widest">Location</p>
-              <p className="text-[11px] text-neutral-600 font-medium">Manila, PH</p>
+              <p className="text-[9px] text-indigo-400 font-mono uppercase tracking-widest">Location</p>
+              <p className="text-[11px] text-slate-600 font-medium">Manila, PH</p>
             </div>
             <div className="space-y-0.5 text-right">
-              <p className="text-[9px] text-neutral-400 font-mono uppercase tracking-widest">Local Time</p>
-              <p className="text-[11px] text-neutral-600 font-medium">{time}</p>
+              <p className="text-[9px] text-indigo-400 font-mono uppercase tracking-widest">Local Time</p>
+              <p className="text-[11px] text-slate-600 font-medium">{time}</p>
             </div>
           </div>
           
           {showBackToTop && (
             <button 
               onClick={scrollToTop}
-              className="w-full flex items-center justify-center gap-2 py-1.5 px-3 rounded-md bg-neutral-50 hover:bg-neutral-100 text-neutral-500 hover:text-neutral-900 transition-all text-[9px] font-mono uppercase tracking-widest border border-neutral-100 cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 py-1.5 px-3 rounded-md bg-indigo-50/30 hover:bg-indigo-100/50 text-slate-500 hover:text-indigo-950 transition-all text-[9px] font-mono uppercase tracking-widest border border-indigo-100/60 cursor-pointer"
             >
               Back to Top
             </button>
@@ -454,16 +454,16 @@ export default function Sidebar() {
       )}
 
       {/* Actions & Socials */}
-      <div className={`pt-4 border-t border-neutral-100 space-y-4 ${isMinimized ? 'items-center mt-auto' : ''}`}>
-        {!isMinimized && <p className="text-[9px] text-neutral-400 font-mono uppercase tracking-[0.2em] ml-1">Quick Actions</p>}
+      <div className={`pt-4 border-t border-indigo-100/60 space-y-4 ${isMinimized ? 'items-center mt-auto' : ''}`}>
+        {!isMinimized && <p className="text-[9px] text-indigo-400 font-mono uppercase tracking-[0.2em] ml-1">Quick Actions</p>}
         
         <div className={`flex flex-col gap-1.5 ${isMinimized ? 'items-center' : ''}`}>
           <button 
             onClick={handleCopyEmail}
-            className={`flex items-center transition-all group cursor-pointer ${isMinimized ? 'justify-center p-2 rounded-md hover:bg-neutral-50' : 'gap-3 px-3 py-1.5 rounded-md border border-neutral-100 hover:border-neutral-900 text-xs text-neutral-600 hover:text-neutral-900 bg-white shadow-sm'}`}
+            className={`flex items-center transition-all group cursor-pointer ${isMinimized ? 'justify-center p-2 rounded-md hover:bg-indigo-50/30' : 'gap-3 px-3 py-1.5 rounded-md border border-indigo-100/60 hover:border-indigo-600 text-xs text-slate-600 hover:text-indigo-950 bg-white shadow-sm'}`}
             title="Copy Email"
           >
-            {copied ? <Check className="w-4 h-4 text-green-500" /> : <Mail className="w-4 h-4 text-neutral-400 group-hover:text-neutral-900" />}
+            {copied ? <Check className="w-4 h-4 text-green-500" /> : <Mail className="w-4 h-4 text-indigo-400 group-hover:text-indigo-950" />}
             {!isMinimized && (
               <span className="font-medium">{copied ? "Copied!" : "Copy Email"}</span>
             )}
@@ -472,10 +472,10 @@ export default function Sidebar() {
           <a 
             href="/resume.pdf" 
             target="_blank"
-            className={`flex items-center transition-all group cursor-pointer ${isMinimized ? 'justify-center p-2 rounded-md hover:bg-neutral-50' : 'gap-3 px-3 py-1.5 rounded-md border border-neutral-100 hover:border-neutral-900 text-xs text-neutral-600 hover:text-neutral-900 bg-white shadow-sm'}`}
+            className={`flex items-center transition-all group cursor-pointer ${isMinimized ? 'justify-center p-2 rounded-md hover:bg-indigo-50/30' : 'gap-3 px-3 py-1.5 rounded-md border border-indigo-100/60 hover:border-indigo-600 text-xs text-slate-600 hover:text-indigo-950 bg-white shadow-sm'}`}
             title="Download CV"
           >
-            <Download className="w-4 h-4 text-neutral-400 group-hover:text-neutral-900" />
+            <Download className="w-4 h-4 text-indigo-400 group-hover:text-indigo-950" />
             {!isMinimized && <span className="font-medium">Resume</span>}
           </a>
         </div>
@@ -490,7 +490,7 @@ export default function Sidebar() {
                   href={social.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-neutral-400 hover:text-neutral-900 transition-colors p-1 hover:bg-neutral-50 rounded"
+                  className="text-indigo-400 hover:text-indigo-950 transition-colors p-1 hover:bg-indigo-50/30 rounded"
                   title={social.name}
                 >
                   <Icon className="w-4" />

@@ -41,9 +41,9 @@ export default function CardDeck({ title, items = [], id }: CardDeckProps) {
   return (
     <div id={id} className="w-full flex flex-col items-center">
       {/* Header */}
-      <div className="w-full flex justify-between items-end mb-10 border-b border-neutral-100 pb-2">
-         <h3 className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">{title}</h3>
-         <p className="text-[9px] text-neutral-400">Click to swap</p>
+      <div className="w-full flex justify-between items-end mb-10 border-b border-indigo-100/60 pb-2">
+         <h3 className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest">{title}</h3>
+         <p className="text-[9px] text-indigo-400">Click to swap</p>
       </div>
 
       {/* Fanned Card Container */}
@@ -87,7 +87,7 @@ export default function CardDeck({ title, items = [], id }: CardDeckProps) {
                 scale: index > 0 ? 0.95 : 1, 
               }}
               transition={{ type: "spring", stiffness: 300, damping: 25, mass: 0.8 }}
-              className={`absolute top-0 w-full h-85 rounded-2xl border border-neutral-200/30 bg-neutral-900 shadow-2xl shadow-neutral-300/40
+              className={`absolute top-0 w-full h-85 rounded-2xl border border-indigo-200/60/30 bg-indigo-600 shadow-2xl shadow-neutral-300/40
                 ${isTop ? "cursor-pointer pointer-events-auto" : "pointer-events-none"}
               `}
             >
@@ -116,7 +116,7 @@ export default function CardDeck({ title, items = [], id }: CardDeckProps) {
                     <h3 className="text-xl font-medium text-white tracking-tight leading-tight mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-neutral-300 leading-relaxed line-clamp-3 font-light">
+                    <p className="text-xs text-indigo-300 leading-relaxed line-clamp-3 font-light">
                       {item.description}
                     </p>
                   </div>
