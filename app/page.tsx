@@ -1,12 +1,10 @@
 import Sidebar from "@/components/sidebar";
 import MainContent from "@/components/main-content";
 import NeuralBackground from "@/components/neural-background";
-import { LoadingScreen } from "@/components/LoadingScreen";
 
 export default function Home() {
   return (
     <>
-      <LoadingScreen />
       
       {/* Scrollable spacer for the loading animation transition */}
       <div className="h-[20vh] w-full" />
